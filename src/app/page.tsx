@@ -13,7 +13,7 @@ const Home = () => {
             className="resize-none w-full placeholder:text-lg text-lg selection:bg-accent selection:text-background caret-foreground"
             placeholder="Vuoi sapere qualcosa su di me? Chiedi pure..."
           />
-          <div className="absolute bottom-0 left-0 w-0.75 bg-accent pointer-events-none h-0 group-focus-within:h-full transition-all duration-300" />
+          <div className="absolute bottom-0 left-0 w-0.75 bg-white pointer-events-none h-0 group-focus-within:h-full transition-all duration-300 bar-glow opacity-0 group-focus-within:opacity-100" />
         </div>
       </div>
     </div>
