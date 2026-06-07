@@ -112,3 +112,7 @@
     0 0 32px 4px color-mix(in oklch, var(--accent) 40%, transparent),
     0 0 64px 8px color-mix(in oklch, var(--accent) 20%, transparent);
 }
+
+@utility input-width {
+  width: min(95%, 30em);
+}
