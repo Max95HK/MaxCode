@@ -2,6 +2,7 @@
  * Node modules
  */
 import { motion } from "motion/react";
+import { useState } from "react";
 
 /**
  * Components
@@ -16,9 +17,19 @@ import {
 } from "@/components/ui/item";
 
 /**
- * Constants
+ * Utils
  */
-import { COMMANDS } from "@/lib/commands";
+import { cn } from "@/lib/utils";
+
+/**
+ * Types
+ */
+import type { Command } from "@/lib/commands/types";
+
+type CommandMenuProps = {
+  commands: Command[];
+  selectedIndex: number;
+};
 
 const containerVariants = {
   hidden: { clipPath: "inset(100% 0 0 0)" },
@@ -40,7 +51,9 @@ const itemVariants = {
   exit: { opacity: 0 },
 };
 
-const CommandMenu = () => {
+const CommandMenu = ({ commands, selectedIndex }: CommandMenuProps) => {
+  //States
+
   return (
     <motion.div
       variants={containerVariants}
@@ -49,9 +62,14 @@ const CommandMenu = () => {
       exit="exit"
       className="bg-primary-foreground/95"
     >
-      {COMMANDS.map((cmd) => (
+      {commands.map((cmd, index) => (
         <motion.div key={cmd.name} variants={itemVariants}>
-          <Item>
+          <Item
+            className={cn(
+              "hover:bg-accent hover:text-background transition-colors",
+              selectedIndex === index && "bg-accent text-background",
+            )}
+          >
             <ItemContent>
               <ItemTitle className="text-lg">/{cmd.name}</ItemTitle>
             </ItemContent>

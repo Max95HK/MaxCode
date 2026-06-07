@@ -12,10 +12,16 @@ import { AnimatePresence } from "motion/react";
 import CommandMenu from "@/components/command-menu";
 import { Textarea } from "@/components/ui/textarea";
 
+/**
+ * Constants
+ */
+import { COMMANDS } from "@/lib/commands";
+
 const Home = () => {
   // States
   const [showMenu, setShowMenu] = useState(false);
   const [search, setSearch] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <div className="container">
@@ -26,7 +32,10 @@ const Home = () => {
           <AnimatePresence>
             {showMenu && (
               <div className="absolute bottom-full left-0 w-full z-10">
-                <CommandMenu />
+                <CommandMenu
+                  commands={COMMANDS}
+                  selectedIndex={selectedIndex}
+                />
               </div>
             )}
           </AnimatePresence>
@@ -43,6 +52,21 @@ const Home = () => {
             onKeyDown={(event) => {
               if (event.key === "/") {
                 setShowMenu(true);
+              }
+
+              if (event.key === "ArrowUp") {
+                event.preventDefault();
+                setSelectedIndex(
+                  (prevIndex) => (prevIndex + 1) % COMMANDS.length,
+                );
+              }
+
+              if (event.key === "ArrowDown") {
+                event.preventDefault();
+                setSelectedIndex(
+                  (prevIndex) =>
+                    (prevIndex - 1 + COMMANDS.length) % COMMANDS.length,
+                );
               }
             }}
           />
