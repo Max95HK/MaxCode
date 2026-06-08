@@ -89,13 +89,20 @@ const CommandMenu = ({
         >
           <Item
             className={cn(
-              "hover:bg-accent hover:text-background transition-colors",
+              "group/item hover:bg-accent hover:text-background transition-colors",
               selectedIndex === index && "bg-accent text-background",
             )}
           >
             <ItemContent>
               <ItemTitle className="text-lg">/{cmd.name}</ItemTitle>
-              <ItemDescription>{cmd.description}</ItemDescription>
+              <ItemDescription
+                className={cn(
+                  "group-hover/item:text-background",
+                  selectedIndex === index && "text-background",
+                )}
+              >
+                {cmd.description}
+              </ItemDescription>
             </ItemContent>
           </Item>
         </motion.div>
