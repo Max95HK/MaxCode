@@ -5,35 +5,33 @@ import type { Command } from "./types";
 
 export const COMMANDS: Command[] = [
   {
-    name: "help",
-    description: "List of all the command",
-    output: 'text'
+    name: "comandi",
+    description: "Elenco dei comandi disponibili",
+    output: "text",
   },
   {
-    name: "about",
-    description: "Personal info about me",
-    output: 'panel'
+    name: "profilo",
+    description: "Informazioni personali e background",
+    output: "panel",
   },
   {
-    name: "skills",
-    description: "What I can do",
-    output: 'panel'
+    name: "abilità",
+    description: "Competenze e ciò che so fare",
+    output: "panel",
   },
   {
-    name: "projects",
-    description: "My portfolio",
-    output: 'panel'
+    name: "lavori",
+    description: "Progetti e portfolio",
+    output: "panel",
   },
   {
-    name: "contact",
-    description: "My contacts",
-    output: 'panel'
+    name: "contatti",
+    description: "Come mettersi in contatto con me",
+    output: "panel",
   },
   {
-    name: "clear",
-    description: "Clear the terminal",
-    action: (ctx) => {
-      ctx.clear();
-    },
+    name: "reset",
+    description: "Ripristina il terminale",
+    action: (ctx) => ctx.clear(),
   },
 ];

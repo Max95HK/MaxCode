@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("h-full", "antialiased", vt323.className)}>
       <body className="min-h-full flex flex-col">
-        <main className="flex justify-center items-center h-full">
+        <main className="h-full flex flex-col">
           {children}
         </main>
       </body>
